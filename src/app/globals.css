@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-background: #120c08;
+  --color-brand-surface: #1b120d;
+  --color-brand-surface-2: #231711;
+  --color-brand-surface-3: #2b1d16;
+  
+  --color-brand-orange-primary: #ff7b1b;
+  --color-brand-orange-hover: #ff9442;
+  --color-brand-orange-active: #e36100;
+  
+  --color-brand-text-main: #fff8f0;
+  --color-brand-text-muted: #dbc9bc;
+  --color-brand-text-faint: #a88d7b;
+  
+  --color-brand-accent-coral: #ff7f50;
+  --color-brand-accent-gold: #ffd700;
+  --color-brand-accent-lime: #39ff14;
+  --color-brand-accent-blue: #00f0ff;
+
+  --animate-float: float 6s ease-in-out infinite;
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+
+  --font-display: var(--font-outfit);
+  --font-body: var(--font-inter);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-brand-background);
+  color: var(--color-brand-text-main);
+  /* The layout.tsx will set the font families via css variables */
+}
