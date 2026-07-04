@@ -1,12 +1,21 @@
 import { cn } from "@/lib/utils";
 
-interface FloatingCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface FloaterProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  delay?: "0s" | "1s" | "2s" | "3s" | "4s" | "5s";
   animation?: "float" | "slow" | "medium" | "diagonal" | "pulse";
+  delay?: "0s" | "1s" | "2s" | "3s" | "4s" | "5s";
+  hideOnMobile?: boolean;
 }
 
-export function FloatingCard({ children, className, delay = "0s", animation = "float", ...props }: FloatingCardProps) {
+export function Floater({ 
+  children, 
+  className, 
+  animation = "float", 
+  delay = "0s", 
+  hideOnMobile = false,
+  ...props 
+}: FloaterProps) {
+  
   const animationClass = {
     float: "animate-float",
     slow: "animate-float-slow",
@@ -18,8 +27,9 @@ export function FloatingCard({ children, className, delay = "0s", animation = "f
   return (
     <div
       className={cn(
+        "relative",
         animationClass,
-        "bg-brand-surface border border-brand-surface-3 rounded-2xl p-6 shadow-2xl backdrop-blur-md",
+        hideOnMobile ? "hidden md:block" : "block",
         className
       )}
       style={{ animationDelay: delay }}

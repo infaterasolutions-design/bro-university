@@ -1,4 +1,5 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Floater } from "@/components/ui/Floater";
 import Image from "next/image";
 
 export function About() {
@@ -54,7 +55,15 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-16 mt-16 items-center">
           {/* Left: Illustrations and Topics */}
           <div className="space-y-12">
-            <div className="flex gap-4 items-center justify-center lg:justify-start">
+            <div className="relative flex gap-4 items-center justify-center lg:justify-start">
+              <Floater animation="pulse" delay="1s" className="absolute -top-6 -left-4 lg:-left-6 z-10 px-3 py-1.5 rounded-full bg-brand-surface border border-brand-surface-3 shadow-lg">
+                <span className="text-[10px] font-display font-bold text-brand-orange-primary uppercase tracking-wider">[NEURAL_LINK.active]</span>
+              </Floater>
+              
+              <Floater animation="medium" delay="3s" className="absolute -bottom-4 right-10 lg:right-32 z-10 px-3 py-1.5 rounded-full bg-brand-surface border border-brand-surface-3 shadow-lg">
+                <span className="text-[10px] font-display font-bold text-brand-accent-blue uppercase tracking-wider">[AI_CHIP_01]</span>
+              </Floater>
+
               <div className="relative w-40 h-40 rounded-3xl overflow-hidden border border-brand-surface-3 shadow-2xl animate-float">
                 <Image src="/neuroscience_vector.png" alt="Neuroscience Vector" fill className="object-cover" />
               </div>
@@ -80,7 +89,7 @@ export function About() {
 
           {/* Right: Rollout Panel */}
           <div className="bg-brand-surface-2 rounded-3xl p-8 md:p-10 border border-brand-surface-3 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange-primary/5 rounded-full blur-[80px]" />
+            <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-brand-orange-primary/5 rounded-full blur-[80px]" />
             <h3 className="text-2xl font-display font-bold text-brand-text-main mb-8">Strategic Rollout Plan</h3>
             
             <div className="space-y-6 relative">

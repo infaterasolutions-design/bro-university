@@ -1,4 +1,5 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Floater } from "@/components/ui/Floater";
 
 export function ResearchImpact() {
   const researches = [
@@ -11,7 +12,7 @@ export function ResearchImpact() {
   ];
 
   return (
-    <section id="research" className="py-24 bg-brand-surface relative border-t border-brand-surface-3">
+    <section id="research" className="py-12 md:py-24 bg-brand-surface relative border-t border-brand-surface-3">
       <div className="container mx-auto px-6 max-w-7xl">
         <SectionHeading 
           subtitle="Focused on breakthrough innovation in technologies that improve human life — not just industries."
@@ -19,7 +20,16 @@ export function ResearchImpact() {
           Solving Real Human Problems
         </SectionHeading>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+        <div className="relative mt-16">
+          <Floater animation="diagonal" delay="0s" className="absolute -top-12 left-10 z-10 px-3 py-1.5 rounded bg-brand-surface border border-brand-surface-3 shadow-lg">
+            <span className="text-[10px] font-display text-brand-text-muted font-mono">&gt;_ SYS.OP</span>
+          </Floater>
+
+          <Floater animation="diagonal" delay="2s" className="absolute -bottom-10 right-20 z-10 px-3 py-1.5 rounded bg-brand-surface border border-brand-surface-3 shadow-lg">
+            <span className="text-[10px] font-display text-brand-orange-primary font-mono">STATUS: OPTIMAL</span>
+          </Floater>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-20">
           {researches.map((research, index) => (
             <div 
               key={index}
@@ -38,6 +48,7 @@ export function ResearchImpact() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>

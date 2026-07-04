@@ -1,4 +1,5 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Floater } from "@/components/ui/Floater";
 
 export function WhyBro() {
   const features = [
@@ -27,7 +28,13 @@ export function WhyBro() {
   return (
     <section id="why-bro" className="py-24 bg-brand-surface relative border-y border-brand-surface-3">
       <div className="container mx-auto px-6 max-w-7xl">
-        <SectionHeading>Built for Future Leaders</SectionHeading>
+        <div className="relative">
+          <SectionHeading>Built for Future Leaders</SectionHeading>
+          
+          <Floater animation="slow" delay="0s" className="absolute -top-10 right-10 lg:right-40 z-10 px-4 py-2 rounded-full bg-brand-orange-primary/10 border border-brand-orange-primary/30 shadow-lg">
+            <span className="text-xs font-display font-bold text-brand-orange-primary uppercase tracking-wider">100% Pre-seed Ready</span>
+          </Floater>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
           {features.map((feature) => (

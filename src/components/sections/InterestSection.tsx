@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CounterCard } from "@/components/ui/CounterCard";
 import { Button } from "@/components/ui/Button";
+import { Floater } from "@/components/ui/Floater";
 
 export function InterestSection() {
   const [counts, setCounts] = useState({
@@ -72,7 +73,12 @@ export function InterestSection() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-brand-surface rounded-3xl p-8 md:p-12 border border-brand-surface-3 shadow-xl">
+          <div className="relative">
+            <Floater animation="pulse" delay="1s" className="absolute -top-6 -right-6 z-10 px-4 py-2 rounded-full bg-brand-orange-primary text-brand-surface-3 shadow-lg">
+              <span className="text-xs font-display font-bold uppercase tracking-wider">Securing Waitlist...</span>
+            </Floater>
+
+            <div className="bg-brand-surface rounded-3xl p-8 md:p-12 border border-brand-surface-3 shadow-xl relative z-0">
             <h3 className="text-2xl font-display font-bold text-brand-text-main mb-8">
               Express Interest
             </h3>
@@ -91,17 +97,17 @@ export function InterestSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-body font-medium text-brand-text-muted">Full Name</label>
-                  <input required type="text" id="name" className="w-full px-4 py-3 rounded-xl bg-brand-surface-2 border border-brand-surface-3 text-brand-text-main placeholder-brand-text-faint focus:outline-none focus:border-brand-orange-primary transition-colors" placeholder="John Doe" />
+                  <input required type="text" id="name" className="w-full px-4 py-4 text-base rounded-xl bg-brand-surface-2 border border-brand-surface-3 text-brand-text-main placeholder-brand-text-faint focus:outline-none focus:border-brand-orange-primary transition-colors" placeholder="John Doe" />
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-body font-medium text-brand-text-muted">Email</label>
-                    <input required type="email" id="email" className="w-full px-4 py-3 rounded-xl bg-brand-surface-2 border border-brand-surface-3 text-brand-text-main placeholder-brand-text-faint focus:outline-none focus:border-brand-orange-primary transition-colors" placeholder="john@example.com" />
+                    <input required type="email" id="email" className="w-full px-4 py-4 text-base rounded-xl bg-brand-surface-2 border border-brand-surface-3 text-brand-text-main placeholder-brand-text-faint focus:outline-none focus:border-brand-orange-primary transition-colors" placeholder="john@example.com" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-sm font-body font-medium text-brand-text-muted">Phone Number</label>
-                    <input type="tel" id="phone" className="w-full px-4 py-3 rounded-xl bg-brand-surface-2 border border-brand-surface-3 text-brand-text-main placeholder-brand-text-faint focus:outline-none focus:border-brand-orange-primary transition-colors" placeholder="+1 (555) 000-0000" />
+                    <input type="tel" id="phone" className="w-full px-4 py-4 text-base rounded-xl bg-brand-surface-2 border border-brand-surface-3 text-brand-text-main placeholder-brand-text-faint focus:outline-none focus:border-brand-orange-primary transition-colors" placeholder="+1 (555) 000-0000" />
                   </div>
                 </div>
 
@@ -112,7 +118,7 @@ export function InterestSection() {
                     required
                     value={formState.school}
                     onChange={(e) => setFormState({...formState, school: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl bg-brand-surface-2 border border-brand-surface-3 text-brand-text-main focus:outline-none focus:border-brand-orange-primary transition-colors appearance-none"
+                    className="w-full px-4 py-4 text-base rounded-xl bg-brand-surface-2 border border-brand-surface-3 text-brand-text-main focus:outline-none focus:border-brand-orange-primary transition-colors appearance-none"
                   >
                     <option value="neuroscience">Neuroscience School</option>
                     <option value="ai">AI School</option>
@@ -122,7 +128,7 @@ export function InterestSection() {
 
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-body font-medium text-brand-text-muted">Why are you interested?</label>
-                  <textarea id="message" rows={4} className="w-full px-4 py-3 rounded-xl bg-brand-surface-2 border border-brand-surface-3 text-brand-text-main placeholder-brand-text-faint focus:outline-none focus:border-brand-orange-primary transition-colors resize-none" placeholder="Tell us about your background and vision..."></textarea>
+                  <textarea id="message" rows={4} className="w-full px-4 py-4 text-base rounded-xl bg-brand-surface-2 border border-brand-surface-3 text-brand-text-main placeholder-brand-text-faint focus:outline-none focus:border-brand-orange-primary transition-colors resize-none" placeholder="Tell us about your background and vision..."></textarea>
                 </div>
 
                 <Button 
@@ -138,6 +144,7 @@ export function InterestSection() {
                 </p>
               </form>
             )}
+            </div>
           </div>
         </div>
       </div>

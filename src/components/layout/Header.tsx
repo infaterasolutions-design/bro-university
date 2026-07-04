@@ -67,29 +67,32 @@ export function Header() {
       </div>
 
       {/* Mobile Nav */}
-      {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-brand-surface border-b border-brand-surface-3 shadow-2xl md:hidden">
-          <nav className="flex flex-col px-6 py-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="py-4 text-brand-text-main font-body border-b border-brand-surface-2 last:border-none"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+      <div 
+        className={cn(
+          "absolute top-full left-0 right-0 bg-brand-surface border-b border-brand-surface-3 shadow-2xl md:hidden overflow-hidden transition-all duration-300 origin-top",
+          isMobileMenuOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"
+        )}
+      >
+        <nav className="flex flex-col px-6 py-4">
+          {navLinks.map((link) => (
             <a
-              href="#interest"
+              key={link.name}
+              href={link.href}
+              className="py-4 text-brand-text-main font-body border-b border-brand-surface-2 last:border-none"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-6 text-center text-sm font-display font-medium px-5 py-4 rounded-full bg-brand-orange-primary text-brand-surface-3"
             >
-              Interest Form
+              {link.name}
             </a>
-          </nav>
-        </div>
-      )}
+          ))}
+          <a
+            href="#interest"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="mt-6 text-center text-sm font-display font-medium px-5 py-4 rounded-full bg-brand-orange-primary text-brand-surface-3"
+          >
+            Interest Form
+          </a>
+        </nav>
+      </div>
     </header>
   );
 }
